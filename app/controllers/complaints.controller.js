@@ -3,9 +3,9 @@ const Complaint = require('../models/complaint.model.js');
 // Create and Save a new Complaint
 exports.create = (req, res) => {
     // Validate request
-    if(!req.body.content) {
+    if(!req.body.description) {
         return res.status(400).send({
-            message: "Complaint content can not be empty"
+            message: "Complaint description can not be empty"
         });
     }
 
