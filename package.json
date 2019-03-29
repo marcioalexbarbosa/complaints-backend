@@ -1,0 +1,23 @@
+{
+  "name": "node-complaints-app",
+  "version": "1.0.0",
+  "description": "Backend to insert and manage complaints",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "RestAPI",
+    "MongoDB",
+    "Mongoose",
+    "Complaints"
+  ],
+  "author": "marcioalexbarbosa",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.8"
+  }
+}
