@@ -4,7 +4,9 @@
   "description": "Backend to insert and manage complaints",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
+    "start": "node server"
   },
   "keywords": [
     "Express",
@@ -19,5 +21,11 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.4.20"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "mock-req-res": "^1.0.4",
+    "sinon": "^7.3.1"
   }
 }

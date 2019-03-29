@@ -20,6 +20,7 @@ exports.create = (req, res) => {
     // Save Complaint in the database
     complaint.save()
     .then(data => {
+        console.log('data', data);
         res.send(data);
     }).catch(err => {
         res.status(500).send({
