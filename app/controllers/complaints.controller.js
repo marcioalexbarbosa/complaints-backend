@@ -50,7 +50,7 @@ exports.findOne = (req, res) => {
                 message: "Complaint not found with id " + req.params.id
             });            
         }
-        res.send(note);
+        res.send(complaint);
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
