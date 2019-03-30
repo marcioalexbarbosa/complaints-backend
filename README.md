@@ -137,9 +137,6 @@ curl -X GET \
 
 ## How to run the tests
 
-
-## How to run
-
 1 - clone the repository
 
 `git clone https://github.com/marcioalexbarbosa/complaints-backend.git`
