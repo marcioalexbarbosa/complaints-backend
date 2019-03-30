@@ -29,6 +29,7 @@ Can you provide some services to ingest complaints and get some data about its g
 * chai
 * eslint
 * eslint-config-standard
+* istanbul
 * mocha
 * nock
 * request
