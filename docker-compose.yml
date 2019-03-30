@@ -1,6 +1,7 @@
 version: "2"
 services:
   app:
+    image: complaints-backend
     container_name: app
     restart: always
     build: .

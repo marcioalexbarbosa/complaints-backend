@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"title\":\"test\", \"description\": \"testing\", \"locale\": \"Piracicaba\", \"company\": \"test\"}"
+					"raw": "{\"title\":\"test\", \"description\": \"testing\", \"locale\": \"São Paulo\", \"company\": \"reclameaqui\"}"
 				},
 				"url": {
 					"raw": "http://localhost:3000/complaints",
