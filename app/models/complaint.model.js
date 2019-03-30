@@ -6,7 +6,7 @@ const ComplaintSchema = mongoose.Schema({
     locale: String,
     company: String
 }, {
-    timestamps: true
-});
+        timestamps: true
+    });
 
 module.exports = mongoose.model('Complaint', ComplaintSchema);

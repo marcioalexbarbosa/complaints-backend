@@ -18,22 +18,25 @@ mongoose.Promise = global.Promise;
 
 // Connecting to the database
 mongoose.connect(dbConfig.url, {
-	useNewUrlParser: true
+    useNewUrlParser: true
 }).then(() => {
-    console.log("Successfully connected to the database");    
+    /* eslint-disable-next-line no-console */
+    console.log("Successfully connected to the database");
 }).catch(err => {
+    /* eslint-disable-next-line no-console */
     console.log('Could not connect to the database. Exiting now...', err);
     process.exit();
 });
 
 // define a simple route
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to Complaints application."});
+    res.json({ "message": "Welcome to Complaints application." });
 });
 
 require('./app/routes/complaint.routes.js')(app);
 
 // listen for requests
 app.listen(3000, () => {
+    /* eslint-disable-next-line no-console */
     console.log("Server is listening on port 3000");
 });

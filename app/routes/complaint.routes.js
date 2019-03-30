@@ -1,5 +1,5 @@
 module.exports = (app) => {
-    const complaints = require('../controllers/complaints.controller.js');
+    const complaints = require('../controllers/complaint.controller.js');
 
     // Create a new Complaint
     app.post('/complaints', complaints.create);
@@ -16,7 +16,9 @@ module.exports = (app) => {
     // Delete a Complaint with id
     app.delete('/complaints/:id', complaints.delete);
 
+    // group complaints locales by companies
     app.get('/complaints/locale/:name', complaints.groupLocaleByCompany);
 
+    // calculates the distance between two complaints
     app.get('/complaints/distance/:id1/:id2', complaints.calculateDistance);
 }
