@@ -14,6 +14,23 @@ We need to research about locales where consumer complaints are made. That compl
 
 Can you provide some services to ingest complaints and get some data about its geolocation? For example, to find how many complaints a specific company has in a specific city?
 
+## Modules used in the project
+
+### dependencies
+
+* all-the-cities
+* body-parser
+* express
+* geo-distance
+* mongoose
+
+### dev dependencies
+
+* chai
+* eslint
+* mocha
+* sinon 
+
 ## API
 
 - create a new complaint
