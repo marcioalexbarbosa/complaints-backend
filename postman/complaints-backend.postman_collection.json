@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "37fd27f7-2d33-4be8-901f-d7b34bf4d09c",
+		"name": "complaints-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"test\", \"description\": \"testing\", \"locale\": \"Piracicaba\", \"company\": \"test\"}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/complaints",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"complaints"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/complaints/5c9eae91b26afc270cd9e637",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"complaints",
+						"5c9eae91b26afc270cd9e637"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locale",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/complaints",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"complaints"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "distance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/complaints/distance/5c9eaf2eb26afc270cd9e638/5c9eaf3ab26afc270cd9e639",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"complaints",
+						"distance",
+						"5c9eaf2eb26afc270cd9e638",
+						"5c9eaf3ab26afc270cd9e639"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/complaints/5c9eaf3ab26afc270cd9e639",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"complaints",
+						"5c9eaf3ab26afc270cd9e639"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\": \"another\", \"description\": \"testing\"}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/complaints/5c9eaf3ab26afc270cd9e639",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"complaints",
+						"5c9eaf3ab26afc270cd9e639"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

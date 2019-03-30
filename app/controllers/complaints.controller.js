@@ -1,5 +1,6 @@
 const Complaint = require('../models/complaint.model.js');
 const cities = require('all-the-cities');
+var Distance = require('geo-distance');
 
 // Create and Save a new Complaint
 exports.create = (req, res) => {
@@ -77,9 +78,9 @@ exports.findOne = (req, res) => {
 // Update a complaint identified by the Id in the request
 exports.update = (req, res) => {
     // Validate Request
-    if(!req.body.content) {
+    if(!req.body.description) {
         return res.status(400).send({
-            message: "Complaint content can not be empty"
+            message: "Complaint description can not be empty"
         });
     }
 
@@ -131,13 +132,80 @@ exports.delete = (req, res) => {
     });
 };
 
-exports.findByLocale = (req, res) => {
-    Complaint.find({locale: req.params.name})
+exports.groupLocaleByCompany = (req, res) => {
+    Complaint.aggregate([
+		{"$group" : {_id:"$company", count:{$sum:1}}}
+	])
     .then(complaints => {
         res.send(complaints);
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while retrieving complaints."
+        });
+    });
+};
+
+exports.calculateDistance = (req, res) => {
+    console.log('param1', req.params.id1);
+    console.log('param2', req.params.id2);
+    Complaint.findById(req.params.id1)
+    .then(complaint1 => {
+        if(!complaint1) {
+            return res.status(404).send({
+                message: "Complaint 1 not found with id " + req.params.id1
+            });            
+        }
+        console.log('complaint1', complaint1);
+        Complaint.findById(req.params.id2)
+        .then(complaint2 => {
+            if(!complaint2) {
+                return res.status(404).send({
+                    message: "Complaint 2 not found with id " + req.params.id2
+                });            
+            }
+            var locale1 = cities.filter(city => {
+                return city.name === complaint1.locale;
+            });
+            var locale2 = cities.filter(city => {
+                return city.name === complaint2.locale;
+            });
+
+            var city1 = null
+            var city2 = null;
+
+            var max_pop_locale1 = 0;
+
+            for (let i=0; i<locale1.length; i++) {
+                if (locale1[i].population > max_pop_locale1) {
+                    city1 = {lat: locale1[i].lat,
+                        lon: locale1[i].lon};
+                    max_pop_locale1 = locale1[i].population;    
+                }
+            }
+
+            var max_pop_locale2 = 0;
+
+            for (let i=0; i<locale2.length; i++) {
+                if (locale2[i].population > max_pop_locale2) {
+                    city2 = {lat: locale2[i].lat,
+                        lon: locale2[i].lon};
+                    max_pop_locale2 = locale2[i].population;    
+                }
+            }
+
+            var distance = Distance.between(city1, city2); 
+            res.send(distance.human_readable());
+        });
+    
+    }).catch(err => {
+        console.log(err);
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Complaint not found with id " + req.params.id
+            });                
+        }
+        return res.status(500).send({
+            message: "Error retrieving complaint with id " + req.params.id
         });
     });
 };

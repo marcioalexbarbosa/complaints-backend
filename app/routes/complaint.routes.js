@@ -16,5 +16,7 @@ module.exports = (app) => {
     // Delete a Complaint with id
     app.delete('/complaints/:id', complaints.delete);
 
-    app.get('/complaints/locale/:name', complaints.findByLocale);
+    app.get('/complaints/locale/:name', complaints.groupLocaleByCompany);
+
+    app.get('/complaints/distance/:id1/:id2', complaints.calculateDistance);
 }
