@@ -1,4 +1,5 @@
 const Complaint = require('../models/complaint.model.js');
+const cities = require('all-the-cities');
 
 // Create and Save a new Complaint
 exports.create = (req, res) => {
@@ -6,6 +7,16 @@ exports.create = (req, res) => {
     if(!req.body.description) {
         return res.status(400).send({
             message: "Complaint description can not be empty"
+        });
+    }
+
+    var locale = cities.filter(city => {
+        return city.name.match(req.body.locale)
+    });
+
+    if(locale.length === 0) {
+        return res.status(400).send({
+            message: "Complaint locale must be a valid city"
         });
     }
 
@@ -116,6 +127,17 @@ exports.delete = (req, res) => {
         }
         return res.status(500).send({
             message: "Could not delete complaint with id " + req.params.id
+        });
+    });
+};
+
+exports.findByLocale = (req, res) => {
+    Complaint.find({locale: req.params.name})
+    .then(complaints => {
+        res.send(complaints);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving complaints."
         });
     });
 };

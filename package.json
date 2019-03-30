@@ -18,6 +18,7 @@
   "author": "marcioalexbarbosa",
   "license": "MIT",
   "dependencies": {
+    "all-the-cities": "^2.0.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.4.20"
@@ -25,7 +26,6 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.0.2",
-    "mock-req-res": "^1.0.4",
     "sinon": "^7.3.1"
   }
 }

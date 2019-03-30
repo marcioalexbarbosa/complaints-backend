@@ -15,4 +15,6 @@ module.exports = (app) => {
 
     // Delete a Complaint with id
     app.delete('/complaints/:id', complaints.delete);
+
+    app.get('/complaints/locale/:name', complaints.findByLocale);
 }
