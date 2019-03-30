@@ -28,8 +28,16 @@ Can you provide some services to ingest complaints and get some data about its g
 
 * chai
 * eslint
+* eslint-config-standard
 * mocha
+* nock
+* request
+* request-promise
 * sinon 
+
+## How to run
+
+1 - clone the repository
 
 ## API
 
