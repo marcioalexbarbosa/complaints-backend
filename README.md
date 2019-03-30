@@ -39,7 +39,19 @@ Can you provide some services to ingest complaints and get some data about its g
 
 1 - clone the repository
 
+`git clone https://github.com/marcioalexbarbosa/complaints-backend.git`
+
+2 - enter the project folder
+
+`cd complaints-backend`
+
+3 - build and run with docker-compose
+
+`sudo docker-compose up`
+
 ## API
+
+**Note:** There is a postman collection convenience file in the postman folder which can be imported into postman
 
 - create a new complaint
     
