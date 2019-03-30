@@ -134,3 +134,28 @@ curl -X GET \
   -H 'Postman-Token: d7443b8f-440f-4fc6-bade-f790da933312' \
   -H 'cache-control: no-cache'
   ```
+
+## How to run the tests
+
+
+## How to run
+
+1 - clone the repository
+
+`git clone https://github.com/marcioalexbarbosa/complaints-backend.git`
+
+2 - enter the project folder
+
+`cd complaints-backend`
+
+3 - install the required modules
+
+`npm install`
+
+4 - run the tests
+
+`npm test`
+
+or
+
+`npm run coverage`
